@@ -15,6 +15,11 @@ public class Usercontroller {
 
     @Autowired
     private RestTemplate restTemplate;
+    
+   @RequestMapping("/test-ok")
+    public String testOk() {
+        return "ok";
+    }
 
     @RequestMapping("/find-provider1")
     public Long findUserByIdprovider1(){
@@ -27,6 +32,7 @@ public class Usercontroller {
         String url = "https://csqweb.azurewebsites.net/findAll";
         return restTemplate.getForObject(url, String.class);
     }
+    
 
 
 
