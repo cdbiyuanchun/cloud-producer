@@ -62,13 +62,13 @@ public class UserController {
         List<User> allUser1 = (List<User>)redisTemplate.opsForValue().get("allUser");
         return allUser1;
     }
-    @RequestMapping("/set-cache-user")
+    @RequestMapping("/set-cache-user/{id}")
     public String setCacheUser(@PathVariable(value = "id") Integer id) {
         User user = userService.findUserById(id);
         redisTemplate.opsForValue().set("user"+id,user,10, TimeUnit.SECONDS);
         return "ok";
     }
-    @RequestMapping("/get-cache-user")
+    @RequestMapping("/get-cache-user/{id}")
     public User getCacheUser(@PathVariable(value = "id") Integer id) {
         User user = (User) redisTemplate.opsForValue().get("user"+id);
         return user;
