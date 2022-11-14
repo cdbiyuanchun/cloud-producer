@@ -29,8 +29,8 @@ public class UserController {
         return all;
     }
 
-    @RequestMapping("/delete-id")
-    public int findAll(@PathVariable(value = "id") Integer id) {
+    @RequestMapping("/delete-id/{id}")
+    public int deleteById(@PathVariable(value = "id") Integer id) {
         return userService.deleteById(id);
     }
 
