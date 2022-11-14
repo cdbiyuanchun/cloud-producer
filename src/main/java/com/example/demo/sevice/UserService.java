@@ -11,5 +11,6 @@ public interface UserService {
      */
     User findUserById(Integer id);
     List<User> findAll();
+    int deleteById(Integer id);
 }
 
