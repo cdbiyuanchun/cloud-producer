@@ -23,11 +23,17 @@ public class UserController {
     }
 
 
-    @RequestMapping("/findUser")
-    public List<User> findAll(){
+    @RequestMapping("/find-user")
+    public List<User> findAll() {
         List<User> all = userService.findAll();
         return all;
     }
+
+    @RequestMapping("/delete-id")
+    public int findAll(@PathVariable(value = "id") Integer id) {
+        return userService.deleteById(id);
+    }
+
 
 
 
