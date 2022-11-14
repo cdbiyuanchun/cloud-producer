@@ -7,6 +7,8 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.example.demo.dao.UserDao;
+
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -38,6 +40,14 @@ public class UserController {
     public int deleteById(@PathVariable(value = "id") Integer id) {
         return userService.deleteById(id);
     }
+    
+   @RequestMapping("/select-count")
+    public int selectCount() {
+        return userDao.selectCount(null);
+        }
+    
+    
+    
     @RequestMapping("/set-cache-users")
     public String setCacheUsers() {
         List<User> allUser = userService.findAll();
