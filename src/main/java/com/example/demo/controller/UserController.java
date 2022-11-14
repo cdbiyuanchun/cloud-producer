@@ -21,6 +21,9 @@ public class UserController {
     @Resource
     private UserService userService;
     @Resource
+    private UserDao userDao;
+
+    @Resource
     private RedisTemplate<String,Object> redisTemplate;
 
     @RequestMapping("/find/{id}")
